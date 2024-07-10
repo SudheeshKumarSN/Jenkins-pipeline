@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'slave1'
+        label 'slave1'      //here the jenkins will execute the script in slave1 and pipeline level has the highest  priority
     }
     stages{
         stage("checkout"){
@@ -8,7 +8,7 @@ pipeline {
                 label 'salve1'
             }
             steps{
-                sh 'echo welcome to  jenkins'
+                sh 'echo welcome to jenkins'
             }
         }
         stage("Build"){
