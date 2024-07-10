@@ -1,24 +1,21 @@
-Pipeline{
+pipeline {
     agent any
-    stages{
-        stage("Checkout"){
-            steps{
-                echo "Hii welcome to jenkins..."
-
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Hi, welcome to Jenkins...'
             }
         }
-        stage("Build"){
-            steps{
-                sh "ls -ltr"
-                echo "Build completed successfully"
+        stage('Build') {
+            steps {
+                sh 'ls -ltr'
+                echo 'Build completed successfully'
             }
         }
-        stage("Deploy"){
-            steps{
-                echo "Deployement completed successfully"
-
+        stage('Deploy') {
+            steps {
+                echo 'Deployment completed successfully...'
             }
         }
     }
-    
 }
