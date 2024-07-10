@@ -1,9 +1,9 @@
 pipeline{
     agent any
     environment{
-           APP='Frontend'
-           DB= '13.50.198.17'
-    }
+           APP="Frontend"
+           DB= "13.50.198.17"
+             }
     stages{
         stage('environment var'){
             steps{
