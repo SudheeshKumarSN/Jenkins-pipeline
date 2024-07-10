@@ -1,0 +1,26 @@
+pipeline{
+    agent any 
+    stages{
+        stage("SCM"){
+            steps{
+                git branch: 'main', url: 'https://github.com/jaintpharsha/jenkins_pipeline_jobs_may24.git'
+
+            }
+        }
+        stage(build){
+                when {
+                    branch 'main'
+                }
+                
+            steps{
+                sh 'ls -ltr'
+            }
+        }
+        stage('deploy'){
+            steps{
+                sh 'echo Deployed successfully'
+            }
+        }
+    
+    }
+}
