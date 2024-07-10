@@ -22,7 +22,7 @@ pipeline {
         }
         stage("Deploy"){
             agent{
-                label 'slave3'
+                label 'slave2'
                 } 
                 steps{
                     sh "echo deoployed successfully..."
