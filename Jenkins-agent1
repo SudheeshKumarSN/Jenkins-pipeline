@@ -1,0 +1,31 @@
+pipeline {
+    agent none             //declaring node in pipeline level and it has the highest preference among all the stages
+    stages {
+        stage('Checkout') {
+            agent {
+                label 'slave1'  //defining this stage should use slave1 node to perform the steps
+            }
+            steps {
+                git branch: 'main', url: 'https://github.com/jaintpharsha/jenkins_pipeline_jobs_may24.git'
+                echo 'Hi, welcome to Jenkins...'
+            }
+        }
+        stage('Build') {
+            agent {
+                label 'slave2'   //defining this stage should use slave2 node to perform the steps
+            }
+            steps {
+                sh 'ls -ltr'
+                echo 'Build completed successfully'
+            }
+        }
+        stage('Deploy') {
+            agent {
+                label 'slave3'   //defining this stage should use slave3 node to perform the steps
+            }
+            steps {
+                echo 'Deployment completed successfully...'
+            }
+        }
+    }
+}
