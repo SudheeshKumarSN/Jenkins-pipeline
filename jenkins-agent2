@@ -1,0 +1,32 @@
+pipeline {
+    agent {
+        label 'slave1'
+    }
+    stages{
+        stage("checkout"){
+            agent {
+                label 'salve1'
+            }
+            steps{
+                sh 'echo welcome to  jenkins'
+            }
+        }
+        stage("Build"){
+            agent{
+                label 'slave2'
+            }
+            steps{
+                sh "ls -ltr"
+                echo"build completed successfully...."
+            }
+        }
+        stage("Deploy"){
+            agent{
+                label 'slave3'
+                } 
+                steps{
+                    sh "echo deoployed successfully..."
+                }
+            }
+        }
+    }
