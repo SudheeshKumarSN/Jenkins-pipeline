@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/jitpack/maven-simple'
+                git branch: 'main', url: 'https://github.com/jaintpharsha/jenkins_pipeline_jobs_may24.git'
                 echo 'Hi, welcome to Jenkins...'
             }
         }
