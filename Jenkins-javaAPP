@@ -13,7 +13,7 @@ pipeline {
         stage('Compilation') {
             steps {
                 sh '''
-                //cd ./elev*
+            
                 mvn compile
                 '''
             }
@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                //cd ./elevn*
+        
                 mvn test
                 '''
             }
