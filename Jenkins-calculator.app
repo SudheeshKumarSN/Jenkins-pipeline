@@ -18,6 +18,13 @@ pipeline{
                     ''' 
                 }
             }
+            stage('tomcat-deploy'){
+                steps{
+                    deploy adapters: [tomcat9(credentialsId: 'tomcat', url: 'http://13.233.75.146:8080', path: '')],
+                                        contextPath: '/java_app',
+                                        war: 'java_app/calculator/target/calculator.war'
+                }
+            }
 
         }
 }   
