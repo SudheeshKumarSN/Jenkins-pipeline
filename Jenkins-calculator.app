@@ -13,7 +13,7 @@ pipeline{
             }
             stage('compile test and integration test'){
                 steps{
-                    sh ''' cd ./java_app
+                    sh ''' cd ./java_app && ls -ltr
                     mvn  compile && mvn test && mvn integration-test
                     ''' 
                 }
