@@ -6,12 +6,14 @@ pipeline {
     stages {
         stage('SCM Checkout') {
             steps {
+                echo "Running on node: ${env.NODE_NAME}"
                 git branch: 'main', url: 'https://github.com/ElevenDevOps/eleven-devops-maven-repo.git'
                 sh 'ls -ltr'
             }
         }
         stage('Compilation') {
             steps {
+                echo "Running on node: ${env.NODE_NAME}"
                 sh '''
             
                 mvn compile
@@ -20,6 +22,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                echo "Running on node: ${env.NODE_NAME}"
                 sh '''
         
                 mvn test
@@ -28,6 +31,7 @@ pipeline {
         }
         stage('integration-test'){
             steps{
+                echo "Running on node: ${env.NODE_NAME}"
                 sh 'mvn integration-test'
             }
         }
