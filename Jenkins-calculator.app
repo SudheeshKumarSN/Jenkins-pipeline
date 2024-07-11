@@ -20,7 +20,7 @@ pipeline{
             }
             stage('Package'){
                 steps{
-                    sh 'cd ./java_app/ && ls -ltr'
+                    sh 'cd ./java_app/upda && ls -ltr && pwd'
                     sh ''' mvn clean package '''
                 }
             }
