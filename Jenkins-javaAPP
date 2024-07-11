@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    tools {
+        maven 'maven_3.9.8' 
+    }
+    stages{
+        stage('SCM Checkout'){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']],
+                 extensions: [], 
+                 userRemoteConfigs: [[url: 'https://github.com/ElevenDevOps/eleven-devops-maven-repo.git']])
+            }
+        }
+        stage('Compilation'){
+            steps{
+                sh 'cd ./elev*'
+                sh 'mvn compile'
+            }
+        }
+        stage('test'){
+            steps{
+                sh 'cd ./elevn*'
+                sh 'mvn test'
+            }
+        }
+    }
+}
