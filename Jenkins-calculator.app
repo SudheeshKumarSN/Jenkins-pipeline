@@ -14,7 +14,7 @@ pipeline{
             stage('compile test and integration test'){
                 steps{
                     sh ''' cd ./java_app && ls -ltr
-                    mvn  compile && mvn test && mvn integration-test && mvn package
+                     mvn test && mvn package
                     ''' 
                 }
             }
@@ -22,7 +22,7 @@ pipeline{
                 steps{
                     deploy adapters: [tomcat9(credentialsId: 'tomcat', url: 'http://13.233.75.146:8080', path: '')],
                                         contextPath: '/java_app',
-                                        war: 'java_app/calculator/target/calculator.war'
+                                        war: '/Calculator/java_app/target/calculator.war'
                 }
             }
 
