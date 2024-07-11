@@ -2,6 +2,9 @@ pipeline{
     agent {
         label 'slave1'
     }
+    tools {
+        maven 'maven_3.9.8'
+    }
         stages{
             stage('checkout'){
                 steps{
